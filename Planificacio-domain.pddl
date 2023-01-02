@@ -28,7 +28,7 @@
    )
 
    (:action entregar
-     :parameters (?o - subministrament ?r - rover ?b - assentament)
+     :parameters (?o - object ?r - rover ?b - assentament)
      :precondition (and (estacionat ?r ?b) (en ?o ?r) (peticio ?o ?b))
      :effect (and (servit ?o) (not (en ?o ?r)))
    )
