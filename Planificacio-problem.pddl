@@ -1,6 +1,6 @@
 (define (problem Planificaio)
    (:domain Planificacio)
-   (:objects rover1 - rover
+   (:objects rover1 rover2 - rover
         p1 p2 p3 p4 p5 - personal
         s1 s2 s3 s4 s5 - subministrament
         a1 a2 a3 a4 a5 - assentament
@@ -9,6 +9,7 @@
 
    (:init
      (estacionat rover1 a1)
+     (estacionat rover2 a1)
      (cami a1 m1)
      (cami m1 a2)
      (cami a2 m2)
