@@ -3,11 +3,11 @@
 
    (:types assentament magatzem - base
 	   personal subministrament - object
-       rover - Rover
+       rover
    )
  
    (:predicates
-     (estacionat ?r - Rover ?b - base)
+     (estacionat ?r - rover ?b - base)
      (disponible ?o - object ?b - base)
      (en ?o - object ?r - rover)
      (servit ?p - object)
@@ -22,7 +22,7 @@
    )
 
    (:action agafar_personal
-     :parameters (?o - personal ?r - Rover ?b - assentament)
+     :parameters (?o - personal ?r - rover ?b - assentament)
      :precondition (and (disponible ?o ?b) (estacionat ?r ?b))
      :effect (and (not (disponible ?o ?b)) (en ?o ?r))
    )
