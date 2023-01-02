@@ -15,7 +15,7 @@
      (cami ?b1 - base ?b2 - base)
    )
 
-   (:action agafar_subminstrament
+   (:action agafar_subministrament
      :parameters (?o - subministrament ?r - rover ?b - magatzem)
      :precondition (and (disponible ?o ?b) (estacionat ?r ?b))
      :effect (and (not (disponible ?o ?b)) (en ?o ?r))
