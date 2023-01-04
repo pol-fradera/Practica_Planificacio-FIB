@@ -1,5 +1,5 @@
 (define (domain Planificacio)
-   (:requirements :adl :typing)
+   (:requirements :adl :typing :fluents)
 
    (:types assentament magatzem - base
 	   personal subministrament - object
