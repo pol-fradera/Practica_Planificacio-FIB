@@ -4,7 +4,6 @@
    (:types assentament magatzem - base
 	   personal subministrament - object
        rover
-       enum
    )
 
    (:predicates
@@ -12,7 +11,7 @@
      (disponible ?o - object ?b - base)
      (en ?o - object ?r - rover)
      (servit ?p - object)
-     (peticio ?o - object ?b - assentament ?e - enum)
+     (peticio ?o - object ?b - assentament)
      (cami ?b1 - base ?b2 - base)
    )
 
@@ -20,6 +19,7 @@
      (places ?r - rover)
      (combustible ?r - rover)
      (prioritat_total)
+     (prioritat ?o - object ?b - assentament)
    )
 
    (:action agafar_subministrament
@@ -37,13 +37,13 @@
    (:action entregar_subministrament
      :parameters (?o - subministrament ?r - rover ?b - assentament)
      :precondition (and (estacionat ?r ?b) (en ?o ?r) (peticio ?o ?b))
-     :effect (and (servit ?o) (not (en ?o ?r)) (decrease (places ?r) 2))
+     :effect (and (servit ?o) (not (en ?o ?r)) (decrease (places ?r) 2) (decrease (prioritat_total) (prioritat  ?o ?b)))
    )
 
    (:action entregar_personal
-        :parameters (?o - personal ?r - rover ?b - assentament ?e - enum)
-        :precondition (and (estacionat ?r ?b) (en ?o ?r) (peticio ?o ?b ?e))
-        :effect (and (servit ?o) (not (en ?o ?r)) (decrease (places ?r) 1) (increase (prioritat_total)) 1/2/3)
+        :parameters (?o - personal ?r - rover ?b - assentament)
+        :precondition (and (estacionat ?r ?b) (en ?o ?r) (peticio ?o ?b))
+        :effect (and (servit ?o) (not (en ?o ?r)) (decrease (places ?r) 1) (decrease (prioritat_total) (prioritat ?o ?b)))
    )
 
    (:action moure_rover

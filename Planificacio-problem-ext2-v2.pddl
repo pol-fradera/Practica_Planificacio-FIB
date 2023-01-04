@@ -1,6 +1,6 @@
 (define (problem Planificaio)
    (:domain Planificacio)
-   (:objects rover1 - rover
+   (:objects rover1 rover2 rover3 - rover
         p1 p2 p3 - personal
         s1 s2 s3 - subministrament
         a1 a2 a3 a4 a5 - assentament
@@ -11,7 +11,13 @@
      (= (places rover1) 0)
      (estacionat rover1 a1)
      (= (combustible rover1) 100)
-     (= combustible_total 100)
+     (= (places rover2) 0)
+     (estacionat rover2 m3)
+     (= (combustible rover2) 100)
+     (= (places rover3) 0)
+     (estacionat rover3 a4)
+     (= (combustible rover3) 100)
+     (= combustible_total 300)
      (cami a1 m1)
      (cami m1 a2)
      (cami a2 m2)
@@ -22,6 +28,8 @@
      (cami m4 a5)
      (cami a5 m5)
      (cami m5 a1)
+     (cami a4 a2)
+     (cami m3 m5)
      (disponible p1 a1)
      (disponible p2 a4)
      (disponible p3 a2)
