@@ -37,13 +37,19 @@
    (:action entregar_subministrament
      :parameters (?o - subministrament ?r - rover ?b - assentament)
      :precondition (and (estacionat ?r ?b) (en ?o ?r) (peticio ?o ?b))
-     :effect (and (servit ?o) (not (en ?o ?r)) (decrease (places ?r) 2) (decrease (prioritat_total) (prioritat  ?o ?b)))
+     :effect (and (servit ?o) (not (en ?o ?r)) (decrease (places ?r) 2)
+                (when (= (prioritat ?o ?b) 1) (increase (prioritat_total) 3))
+                (when (= (prioritat ?o ?b) 2) (increase (prioritat_total) 2))
+                (when (= (prioritat ?o ?b) 3) (increase (prioritat_total) 1)) )
    )
 
    (:action entregar_personal
         :parameters (?o - personal ?r - rover ?b - assentament)
         :precondition (and (estacionat ?r ?b) (en ?o ?r) (peticio ?o ?b))
-        :effect (and (servit ?o) (not (en ?o ?r)) (decrease (places ?r) 1) (decrease (prioritat_total) (prioritat ?o ?b)))
+        :effect (and (servit ?o) (not (en ?o ?r)) (decrease (places ?r) 1)
+                (when (= (prioritat ?o ?b) 1) (increase (prioritat_total) 3))
+                (when (= (prioritat ?o ?b) 2) (increase (prioritat_total) 2))
+                (when (= (prioritat ?o ?b) 3) (increase (prioritat_total) 1)) )
    )
 
    (:action moure_rover
