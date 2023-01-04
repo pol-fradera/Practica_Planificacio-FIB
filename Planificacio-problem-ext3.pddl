@@ -56,5 +56,5 @@
    )
    (:goal (and (forall (?o - personal) (servit ?o)) (forall (?o - subministrament) (servit ?o)))
    )
-   (:metric maximize (prioritat_total))
+   (:metric minimize (prioritat_total))
 )

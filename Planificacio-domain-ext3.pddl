@@ -43,7 +43,7 @@
    (:action entregar_personal
         :parameters (?o - personal ?r - rover ?b - assentament ?e - enum)
         :precondition (and (estacionat ?r ?b) (en ?o ?r) (peticio ?o ?b ?e))
-        :effect (and (servit ?o) (not (en ?o ?r)) (decrease (places ?r) 1) (increase )
+        :effect (and (servit ?o) (not (en ?o ?r)) (decrease (places ?r) 1) (increase (prioritat_total)) 1/2/3)
    )
 
    (:action moure_rover
