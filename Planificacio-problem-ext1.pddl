@@ -1,6 +1,6 @@
 (define (problem Planificaio)
    (:domain Planificacio)
-   (:objects rover1 rover2 rover3 rover4 rover5 rover6 rover7 rover8 rover9 rover10 rover11 rover12 rover13 rover14 rover15 rover16 rover17 rover18 rover19 rover20 - rover
+   (:objects rover1 rover2 rover3 rover4 - rover
         p1 p2 p3 p4 p5 - personal
         s1 s2 s3 s4 s5 - subministrament
         a1 a2 a3 a4 a5 - assentament
@@ -8,26 +8,14 @@
     )
 
    (:init
+     (= (places rover1) 0)
      (estacionat rover1 a1)
-     (estacionat rover2 m4)
+     (= (places rover2) 0)
+     (estacionat rover2 m3)
+     (= (places rover3) 0)
      (estacionat rover3 a5)
-     (estacionat rover4 a2)
-     (estacionat rover5 a3)
-     (estacionat rover6 a4)
-     (estacionat rover7 m1)
-     (estacionat rover8 m3)
-     (estacionat rover9 m4)
-     (estacionat rover10 m5)
-     (estacionat rover11 m2)
-     (estacionat rover12 a2)
-     (estacionat rover13 m4)
-     (estacionat rover14 m3)
-     (estacionat rover15 a1)
-     (estacionat rover16 a3)
-     (estacionat rover17 a3)
-     (estacionat rover18 a5)
-     (estacionat rover19 m5)
-     (estacionat rover20 m4)
+     (= (places rover4) 0)
+     (estacionat rover4 m2)
      (cami a1 m1)
      (cami m1 a2)
      (cami a2 m2)

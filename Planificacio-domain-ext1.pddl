@@ -5,7 +5,7 @@
 	   personal subministrament - object
        rover
    )
- 
+
    (:predicates
      (estacionat ?r - rover ?b - base)
      (disponible ?o - object ?b - base)
@@ -15,22 +15,32 @@
      (cami ?b1 - base ?b2 - base)
    )
 
+   (:functions
+     (places ?r - rover)
+   )
+
    (:action agafar_subministrament
      :parameters (?o - subministrament ?r - rover ?b - magatzem)
-     :precondition (and (disponible ?o ?b) (estacionat ?r ?b))
-     :effect (and (not (disponible ?o ?b)) (en ?o ?r))
+     :precondition (and (disponible ?o ?b) (estacionat ?r ?b) (< (places ?r) 1))
+     :effect (and (not (disponible ?o ?b)) (en ?o ?r) (increase (places ?r) 2))
    )
 
    (:action agafar_personal
      :parameters (?o - personal ?r - rover ?b - assentament)
-     :precondition (and (disponible ?o ?b) (estacionat ?r ?b))
-     :effect (and (not (disponible ?o ?b)) (en ?o ?r))
+     :precondition (and (disponible ?o ?b) (estacionat ?r ?b) (< (places ?r) 2))
+     :effect (and (not (disponible ?o ?b)) (en ?o ?r) (increase (places ?r) 1))
    )
 
-   (:action entregar
-     :parameters (?o - object ?r - rover ?b - assentament)
+   (:action entregar_subministrament
+     :parameters (?o - subministrament ?r - rover ?b - assentament)
      :precondition (and (estacionat ?r ?b) (en ?o ?r) (peticio ?o ?b))
-     :effect (and (servit ?o) (not (en ?o ?r)))
+     :effect (and (servit ?o) (not (en ?o ?r)) (decrease (places ?r) 2))
+   )
+
+   (:action entregar_personal
+        :parameters (?o - personal ?r - rover ?b - assentament)
+        :precondition (and (estacionat ?r ?b) (en ?o ?r) (peticio ?o ?b))
+        :effect (and (servit ?o) (not (en ?o ?r)) (decrease (places ?r) 1))
    )
 
    (:action moure_rover
