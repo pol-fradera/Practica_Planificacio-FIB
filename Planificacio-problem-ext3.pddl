@@ -8,7 +8,7 @@
     )
 
    (:init
-     (= (prioritat_total) 0)
+     (= (prioritat_total) 18)
      (= (places rover1) 0)
      (estacionat rover1 a1)
      (= (combustible rover1) 100)
