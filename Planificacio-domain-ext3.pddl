@@ -13,13 +13,16 @@
      (servit ?p - object)
      (peticio ?o - object ?b - assentament)
      (cami ?b1 - base ?b2 - base)
+     (prioritat1 ?o - object ?b - assentament)
+     (prioritat2 ?o - object ?b - assentament)
+     (prioritat3 ?o - object ?b - assentament)
    )
 
    (:functions
      (places ?r - rover)
      (combustible ?r - rover)
+     (combustible_total)
      (prioritat_total)
-     (prioritat ?o - object ?b - assentament)
    )
 
    (:action agafar_subministrament
@@ -38,23 +41,25 @@
      :parameters (?o - subministrament ?r - rover ?b - assentament)
      :precondition (and (estacionat ?r ?b) (en ?o ?r) (peticio ?o ?b))
      :effect (and (servit ?o) (not (en ?o ?r)) (decrease (places ?r) 2)
-                (when (= (prioritat ?o ?b) 1) (increase (prioritat_total) 3))
-                (when (= (prioritat ?o ?b) 2) (increase (prioritat_total) 2))
-                (when (= (prioritat ?o ?b) 3) (increase (prioritat_total) 1)) )
+             (when (prioritat3 ?o ?b) (increase (prioritat_total) 10))
+             (when (prioritat2 ?o ?b) (increase (prioritat_total) 20))
+             (when (prioritat1 ?o ?b) (increase (prioritat_total) 30))
+             )
    )
 
    (:action entregar_personal
         :parameters (?o - personal ?r - rover ?b - assentament)
         :precondition (and (estacionat ?r ?b) (en ?o ?r) (peticio ?o ?b))
         :effect (and (servit ?o) (not (en ?o ?r)) (decrease (places ?r) 1)
-                (when (= (prioritat ?o ?b) 1) (increase (prioritat_total) 3))
-                (when (= (prioritat ?o ?b) 2) (increase (prioritat_total) 2))
-                (when (= (prioritat ?o ?b) 3) (increase (prioritat_total) 1)) )
+                (when (prioritat3 ?o ?b) (increase (prioritat_total) 10))
+                (when (prioritat2 ?o ?b) (increase (prioritat_total) 20))
+                (when (prioritat1 ?o ?b) (increase (prioritat_total) 30))
+                )
    )
 
    (:action moure_rover
      :parameters (?r - Rover ?o - base ?d - base)
      :precondition (and (estacionat ?r ?o) (or (cami ?o ?d) (cami ?d ?o)) (> (combustible ?r) 0))
-     :effect (and (estacionat ?r ?d) (not (estacionat ?r ?o)) (decrease (combustible ?r) 1))
+     :effect (and (estacionat ?r ?d) (not (estacionat ?r ?o)) (decrease (combustible ?r) 1) (increase (combustible_total) 1))
    )
 )
