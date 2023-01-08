@@ -21,6 +21,7 @@
    (:functions
      (places ?r - rover)
      (combustible ?r - rover)
+     (combustible_total)
      (prioritat_total)
    )
 
@@ -59,6 +60,6 @@
    (:action moure_rover
      :parameters (?r - Rover ?o - base ?d - base)
      :precondition (and (estacionat ?r ?o) (or (cami ?o ?d) (cami ?d ?o)) (> (combustible ?r) 0))
-     :effect (and (estacionat ?r ?d) (not (estacionat ?r ?o)) (decrease (combustible ?r) 1))
+     :effect (and (estacionat ?r ?d) (not (estacionat ?r ?o)) (decrease (combustible ?r) 1) (increase (combustible_total) 1))
    )
 )

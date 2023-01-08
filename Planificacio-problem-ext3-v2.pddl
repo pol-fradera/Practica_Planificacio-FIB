@@ -15,6 +15,7 @@
      (= (places rover2) 0)
      (estacionat rover2 m3)
      (= (combustible rover2) 100)
+     (= combustible_total 0)
      (cami a1 m1)
      (cami m1 a2)
      (cami a2 m2)
@@ -53,5 +54,5 @@
 
    (:goal (and (forall (?o - personal) (servit ?o)) (forall (?o - subministrament) (servit ?o)))
    )
-   (:metric minimize (prioritat_total))
+   (:metric minimize (+ (prioritat_total) (combustible_total)))
 )
