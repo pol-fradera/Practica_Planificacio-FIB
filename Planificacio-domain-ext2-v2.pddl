@@ -10,7 +10,7 @@
      (estacionat ?r - rover ?b - base)
      (disponible ?o - object ?b - base)
      (en ?o - object ?r - rover)
-     (entregat ?p - object)
+     (entregat ?o - object)
      (peticio ?o - object ?b - assentament)
      (cami ?b1 - base ?b2 - base)
    )
