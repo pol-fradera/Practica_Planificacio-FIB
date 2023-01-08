@@ -59,6 +59,6 @@
      (peticio s4 a5)
      (peticio s5 a5)
    )
-   (:goal (and (forall (?o - personal) (servit ?o)) (forall (?o - subministrament) (servit ?o)))
+   (:goal (and (forall (?o - personal) (entregat ?o)) (forall (?o - subministrament) (entregat ?o)))
    )
 )

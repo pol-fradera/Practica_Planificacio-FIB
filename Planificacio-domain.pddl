@@ -10,7 +10,7 @@
      (estacionat ?r - rover ?b - base)
      (disponible ?o - object ?b - base)
      (en ?o - object ?r - rover)
-     (servit ?p - object)
+     (entregat ?p - object)
      (peticio ?o - object ?b - assentament)
      (cami ?b1 - base ?b2 - base)
    )
@@ -30,7 +30,7 @@
    (:action entregar
      :parameters (?o - object ?r - rover ?b - assentament)
      :precondition (and (estacionat ?r ?b) (en ?o ?r) (peticio ?o ?b))
-     :effect (and (servit ?o) (not (en ?o ?r)))
+     :effect (and (entregat ?o) (not (en ?o ?r)))
    )
 
    (:action moure_rover

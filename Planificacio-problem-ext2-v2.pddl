@@ -44,7 +44,7 @@
      (peticio s3 a1)
    )
 
-   (:goal (and (forall (?o - personal) (servit ?o)) (forall (?o - subministrament) (servit ?o)))
+   (:goal (and (forall (?o - personal) (entregat ?o)) (forall (?o - subministrament) (entregat ?o)))
    )
    (:metric maximize (combustible_total))
 )

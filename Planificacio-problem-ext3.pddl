@@ -51,7 +51,7 @@
      (prioritat1 s3 a3)
    )
 
-   (:goal (and (forall (?o - personal) (servit ?o)) (forall (?o - subministrament) (servit ?o)))
+   (:goal (and (forall (?o - personal) (entregat ?o)) (forall (?o - subministrament) (entregat ?o)))
    )
    (:metric minimize (prioritat_total))
 )
