@@ -46,7 +46,7 @@
    )
 
    (:action moure_rover
-     :parameters (?r - Rover ?o - base ?d - base)
+     :parameters (?r - rover ?o - base ?d - base)
      :precondition (and (estacionat ?r ?o) (or (cami ?o ?d) (cami ?d ?o)) (> (combustible ?r) 0))
      :effect (and (estacionat ?r ?d) (not (estacionat ?r ?o)) (decrease (combustible ?r) 1) (decrease (combustible_total) 1))
    )
