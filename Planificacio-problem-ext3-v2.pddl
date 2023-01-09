@@ -1,4 +1,4 @@
-(define (problem Planificaio)
+(define (problem Planificacio)
    (:domain Planificacio)
    (:objects rover1 rover2 - rover
         p1 p2 p3 - personal
