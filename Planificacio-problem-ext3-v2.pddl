@@ -45,11 +45,9 @@
      (peticio s2 a3)
      (prioritat3 s2 a3)
      (peticio s3 a1)
-     (prioritat2 s3 a1)
-     (peticio s3 a2)
-     (prioritat1 s3 a2)
+     (prioritat3 s3 a1)
      (peticio s3 a3)
-     (prioritat1 s3 a3)
+     (prioritat2 s3 a3)
    )
 
    (:goal (and (forall (?o - personal) (entregat ?o)) (forall (?o - subministrament) (entregat ?o)))
